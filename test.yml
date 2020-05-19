@@ -1,0 +1,31 @@
+- hosts: all
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: Create New User
+    user:
+     name: user
+     state: present
+  - name: Create a Folder .ssh
+    file:
+     state: directory
+     path: /home/user/.ssh
+     mode: 0700
+     owner: user
+     group: user
+  - name: Create a file of authorized_keys
+    file:
+     state: touch
+     path: /home/user/.ssh/authorized_keys
+     owner: user
+     group: user
+     mode: 0600
+  - name: Content of Publickey
+    copy:
+     content: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBSxiZ31rKLp8sRl1HHIUoJ8hh/JFpGZPizreEAL1BDWCOdMuUvphkro2MptuF48vBIDPqapRwGzqhoZZppCWlYM9DuKNwBVThSERCR1+VlDGzUgq7iwjL8qags7sSTWCp8G+W4P8LS3q2vN5xo2A0nk3gov2lcubBhT2CnIgwhBA8PfwgNYbQrPDf7pVG+US4xlvOfxW1EPMnAn65iUiVyMn8szZRT+MGHD/MGzqBsxYza0gOngdjG3vQhwIEYySeqgiQ1b/7e8AflaVDTRMzYQr/+SrS73A+bmrfba5fJx0wqwxa3wmmsMjnhK9uviMATdGOgUWbA8W35j2FxnOb root@ip-172-31-5-252.ap-southeast-2.compute.internal"
+     dest: /home/user/.ssh/authorized_keys
+  - name: Sudoers Entry To User
+    lineinfile:
+     path: /etc/sudoers
+     line: 'user       ALL=(ALL)       NOPASSWD: ALL'
+
