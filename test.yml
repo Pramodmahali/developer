@@ -4,21 +4,21 @@
   tasks:
   - name: Create New User
     user:
-     name: user
+     name: pramod
      state: present
   - name: Create a Folder .ssh
     file:
      state: directory
      path: /home/user/.ssh
      mode: 0700
-     owner: user
-     group: user
+     owner: pramod
+     group: pramod
   - name: Create a file of authorized_keys
     file:
      state: touch
-     path: /home/user/.ssh/authorized_keys
-     owner: user
-     group: user
+     path: /home/pramod/.ssh/authorized_keys
+     owner: pramod
+     group: pramod
      mode: 0600
   - name: Content of Publickey
     copy:
@@ -27,5 +27,5 @@
   - name: Sudoers Entry To User
     lineinfile:
      path: /etc/sudoers
-     line: 'user       ALL=(ALL)       NOPASSWD: ALL'
+     line: 'pramod       ALL=(ALL)       NOPASSWD: ALL'
 
