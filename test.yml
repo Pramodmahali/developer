@@ -4,28 +4,28 @@
   tasks:
   - name: Create New User
     user:
-     name: mahali
+     name: cldcvr
      state: present
   - name: Create a Folder .ssh
     file:
      state: directory
-     path: /home/mahali/.ssh
+     path: /home/cldcvr/.ssh
      mode: 0700
-     owner: mahali
-     group: mahali
+     owner: cldcvr
+     group: cldcvr
   - name: Create a file of authorized_keys
     file:
      state: touch
-     path: /home/mahali/.ssh/authorized_keys
-     owner: mahali
-     group: mahali
+     path: /home/cldcvr/.ssh/authorized_keys
+     owner: cldcvr
+     group: cldcvr
      mode: 0600
   - name: Content of Publickey
     copy:
      content: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBSxiZ31rKLp8sRl1HHIUoJ8hh/JFpGZPizreEAL1BDWCOdMuUvphkro2MptuF48vBIDPqapRwGzqhoZZppCWlYM9DuKNwBVThSERCR1+VlDGzUgq7iwjL8qags7sSTWCp8G+W4P8LS3q2vN5xo2A0nk3gov2lcubBhT2CnIgwhBA8PfwgNYbQrPDf7pVG+US4xlvOfxW1EPMnAn65iUiVyMn8szZRT+MGHD/MGzqBsxYza0gOngdjG3vQhwIEYySeqgiQ1b/7e8AflaVDTRMzYQr/+SrS73A+bmrfba5fJx0wqwxa3wmmsMjnhK9uviMATdGOgUWbA8W35j2FxnOb root@ip-172-31-5-252.ap-southeast-2.compute.internal"
-     dest: /home/mahali/.ssh/authorized_keys
+     dest: /home/cldcvr/.ssh/authorized_keys
   - name: Sudoers Entry To User
     lineinfile:
      path: /etc/sudoers
-     line: 'mahali       ALL=(ALL)       NOPASSWD: ALL'
+     line: 'cldcvr       ALL=(ALL)       NOPASSWD: ALL'
 
