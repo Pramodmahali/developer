@@ -9,7 +9,7 @@
   - name: Create a Folder .ssh
     file:
      state: directory
-     path: /home/user/.ssh
+     path: /home/pramod/.ssh
      mode: 0700
      owner: pramod
      group: pramod
