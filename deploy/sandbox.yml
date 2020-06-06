@@ -1,0 +1,11 @@
+- hosts: Sandbox
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: Create a Folder
+    file:
+     state: directory
+     path: /home/ec2-user/Hariom
+     mode: 0755
+     owner: Hariom
+     group: Hariom
