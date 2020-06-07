@@ -5,7 +5,7 @@
   - name: Create a Folder
     file:
      state: directory
-     path: /home/ec2-user/Hariom
+     path: /home/ec2-user/hariom
      mode: 0755
-     owner: Hariom
-     group: Hariom
+     owner: ec2-user
+     group: ec2-user
