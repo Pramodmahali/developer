@@ -1,4 +1,4 @@
-- hosts: Sandbox
+- hosts: Production
   become: yes
   gather_facts: no
   tasks:
